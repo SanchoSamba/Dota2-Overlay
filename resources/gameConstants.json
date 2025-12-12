@@ -124,7 +124,7 @@
     {
       "name": "Carry",
       "notifications": {
-        "3": "Lotus test",
+        "3": "Lotus",
         "6": "Lotus",
         "7": "Experience shrine",
         "10": "Lane-end, cart",
@@ -138,21 +138,18 @@
     },
     {
       "name": "Mid",
-      "notifications": {
-        "3": "test",
-        "18": "New Notification"
-      }
-    },
-    {
-      "name": "Template 3",
       "notifications": {}
     },
     {
-      "name": "Template 4",
+      "name": "Offlane",
       "notifications": {}
     },
     {
-      "name": "Template 5",
+      "name": "Soft Support",
+      "notifications": {}
+    },
+    {
+      "name": "Hard Support",
       "notifications": {}
     }
   ],

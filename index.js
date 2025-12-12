@@ -81,7 +81,7 @@ function createWindow() {
   mainWindow.setIgnoreMouseEvents(true);
   mainWindow.loadFile('overlay.html');
 
-  mainWindow.webContents.openDevTools({ mode: 'detach' }); // Commented out devtools for production use
+  // mainWindow.webContents.openDevTools({ mode: 'detach' }); // Commented out devtools for production use
 }
 
 // ------------------------------------------------------

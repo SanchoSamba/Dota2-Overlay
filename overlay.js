@@ -55,7 +55,7 @@ async function loadGameConstants() {
   const loaded = await loadGameConstants();
   if (!loaded) return;
 
-  console.log("Loaded constants:", loaded);
+  // console.log("Loaded constants:", loaded);
 
   window.LANES = loaded.lanes;
   window.MAP_MIN = -8000;
@@ -76,7 +76,7 @@ window.electron.ipcRenderer.on("active-template-changed", (event, template) => {
     return;
   }
 
-  console.log("[Overlay] Active template updated:", template.name);
+  // console.log("[Overlay] Active template updated:", template.name);
 
   notifications = template.notifications || {}; 
 });
@@ -88,7 +88,7 @@ window.electron.ipcRenderer.on("overlay-size-updated", (event, newSize) => {
   // FIX: Check for the new notificationHeight property
   if (!newSize || !newSize.width || !newSize.height || typeof newSize.notificationHeight !== 'number') return;
 
-  console.log("[Overlay] Updating canvas size:", newSize);
+  // console.log("[Overlay] Updating canvas size:", newSize);
 
   // Store the offset
   notificationOffset = newSize.notificationHeight;

@@ -112,7 +112,7 @@ function onOverlaySizeChanged() {
   window.electron.ipcRenderer.send('overlay-size-changed', { width: newW, height: newH });
 
   // optionally: you could auto-save here by invoking save - but we'll keep explicit Save button
-  console.log('[Settings] overlay size changed ->', { width: newW, height: newH });
+  // console.log('[Settings] overlay size changed ->', { width: newW, height: newH });
 }
 
 // --- Template helpers ---
