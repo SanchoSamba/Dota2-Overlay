@@ -106,7 +106,25 @@ window.electron.ipcRenderer.on("overlay-size-updated", (event, newSize) => {
 // -------------------------------------------------
 // Game/Time handling
 // -------------------------------------------------
-let gameData = { clockTime: 0, mapName: "unknown", paused: false, alive: true };
+/* let gameData = { clockTime: 0, mapName: "unknown", paused: false, alive: true };
+let lastFrameTime = Date.now();
+let serverClockTime = 0;
+let displayClockTime = 0;
+
+window.electron.ipcRenderer.on("game-data", (event, data) => {
+  gameData = data;
+  serverClockTime = data.clockTime;
+
+  if (Math.abs(displayClockTime - serverClockTime) > 2)
+    displayClockTime = serverClockTime;
+}); */
+
+
+// -------------------------------------------------
+// Game/Time handling
+// -------------------------------------------------
+// 💡 MODIFIED: Added gameState to gameData
+let gameData = { clockTime: 0, mapName: "unknown", paused: false, alive: true, gameState: 'DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS' };
 let lastFrameTime = Date.now();
 let serverClockTime = 0;
 let displayClockTime = 0;
@@ -118,7 +136,6 @@ window.electron.ipcRenderer.on("game-data", (event, data) => {
   if (Math.abs(displayClockTime - serverClockTime) > 2)
     displayClockTime = serverClockTime;
 });
-
 // -------------------------------------------------
 // Canvas setup
 // -------------------------------------------------
@@ -189,6 +206,8 @@ function getCreepWavePositions(clock) {
   return waves;
 }
 
+
+
 // -------------------------------------------------
 // Notifications
 // -------------------------------------------------
@@ -215,7 +234,7 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   goldctx.clearRect(0, 0, gold.width, gold.height);
 
-  if (serverClockTime > 0) {
+  if (serverClockTime > 0 && !gameData.postGame) {
     
     // FIX: Apply a vertical offset to the minimap context
     ctx.save();

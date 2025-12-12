@@ -81,7 +81,7 @@ function createWindow() {
   mainWindow.setIgnoreMouseEvents(true);
   mainWindow.loadFile('overlay.html');
 
-  // mainWindow.webContents.openDevTools({ mode: 'detach' }); // Commented out devtools for production use
+  mainWindow.webContents.openDevTools({ mode: 'detach' }); // Commented out devtools for production use
 }
 
 // ------------------------------------------------------
@@ -100,6 +100,7 @@ function startGSIServer() {
       const paused = data.map.paused || false;
       const homeTeam = data.player?.team_name;
       const unreliableGold = data.player?.gold_unreliable;
+      const gameState = data.map.game_state || 'DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS';
 
       const gameData = {
         clockTime: clockTime,
@@ -107,9 +108,11 @@ function startGSIServer() {
         alive: alive,
         paused: paused,
         homeTeam: homeTeam,
-        unreliableGold: unreliableGold
+        unreliableGold: unreliableGold,
+        postGame: gameState === 'DOTA_GAMERULES_STATE_POST_GAME'
       };
 
+ 
       if (mainWindow) {
         mainWindow.webContents.send('game-data', gameData);
       }
