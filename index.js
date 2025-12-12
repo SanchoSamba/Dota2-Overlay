@@ -14,7 +14,6 @@ let constantsCache = null; // ⬅ main stores constants to broadcast updates
 
 // Define the space needed for the notification bar
 const NOTIFICATION_HEIGHT = 30;
-const GOLD_WIDTH = 150;
 
 
 async function updateOverlayVisibility() {
@@ -56,10 +55,9 @@ function createWindow() {
 
   // FIX: Add notification height to total window height
   const newWindowHeight = overlayHeight + NOTIFICATION_HEIGHT;
-  const newWindowWidth = overlayWidth + GOLD_WIDTH;
 
   mainWindow = new BrowserWindow({
-    width: newWindowWidth,
+    width: overlayWidth,
     height: newWindowHeight,
     x: 0,
     // FIX: Shift window up by the new total height to keep the bottom edge in place
@@ -81,7 +79,7 @@ function createWindow() {
   mainWindow.setIgnoreMouseEvents(true);
   mainWindow.loadFile('overlay.html');
 
-  // mainWindow.webContents.openDevTools({ mode: 'detach' });
+  // mainWindow.webContents.openDevTools({ mode: 'detach' }); // Commented out devtools for production use
 }
 
 // ------------------------------------------------------
@@ -185,7 +183,7 @@ function openSettingsWindow() {
     settingsWindow = null;
   });
 
-  // settingsWindow.webContents.openDevTools({ mode: 'detach' });
+  // settingsWindow.webContents.openDevTools({ mode: 'detach' }); // Commented out devtools for production use
 }
 
 function createTray() {
@@ -222,19 +220,52 @@ async function loadConstants() {
   }
 }
 
-app.whenReady().then(async () => {
-  await loadConstants(); // Wait for constants to load
-  createWindow();
-  startGSIServer();
-  createTray();
-  startFocusWatcher();
-});
+// ------------------------------------------------------
+// APP LIFECYCLE
+// ------------------------------------------------------
+const gotTheLock = app.requestSingleInstanceLock();
+
+if (!gotTheLock) {
+  // Second instance launched: quit immediately
+  app.quit();
+} else {
+  // First instance launched: set up event handler and start app logic
+
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, focus the main window
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.showInactive(); // Use showInactive to avoid stealing focus
+    }
+    if (settingsWindow) {
+      settingsWindow.focus();
+    }
+  });
+
+
+  app.whenReady().then(async () => {
+    await loadConstants(); // Wait for constants to load
+    createWindow();
+    startGSIServer();
+    createTray();
+    startFocusWatcher();
+
+    app.on('activate', () => {
+      // On macOS, recreate a window when dock icon is clicked and no other windows are open.
+      if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+      }
+    });
+  });
+}
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
+    // Only quit application completely if it's not macOS
     app.quit();
   }
 });
+
 
 // ------------------------------------------------------
 // IPC: Load & Save constants
@@ -276,8 +307,7 @@ ipcMain.on("overlay-size-changed", (event, newSize) => {
     mainWindow.webContents.send("overlay-size-updated", {
         width: newSize.width,
         height: newSize.height,
-        notificationHeight: NOTIFICATION_HEIGHT, 
-        goldWidth: GOLD_WIDTH
+        notificationHeight: NOTIFICATION_HEIGHT 
     }); 
   }
 
@@ -290,10 +320,9 @@ ipcMain.on("overlay-size-changed", (event, newSize) => {
     const overlayHeight = newSize.height;
 
     const newWindowHeight = overlayHeight + NOTIFICATION_HEIGHT;
-    const newWindowWidth = overlayWidth + GOLD_WIDTH;
 
     // Set the main window's new size
-    mainWindow.setSize(newWindowWidth, newWindowHeight);
+    mainWindow.setSize(overlayWidth, newWindowHeight);
     // FIX: Reposition the main window to be at the bottom of the screen, shifted up by the new total height
     mainWindow.setPosition(0, height - newWindowHeight);
 
