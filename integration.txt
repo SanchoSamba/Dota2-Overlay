@@ -1,0 +1,257 @@
+DURING GAME
+
+{
+  provider: { name: 'Dota 2', appid: 570, version: 48, timestamp: 1764243458 },
+  map: {
+    name: 'start',
+    matchid: '8578754323',
+    game_time: 52,
+    clock_time: 28,
+    daytime: true,
+    nightstalker_night: false,
+    radiant_score: 0,
+    dire_score: 0,
+    game_state: 'DOTA_GAMERULES_STATE_GAME_IN_PROGRESS',
+    paused: false,
+    win_team: 'none',
+    customgamename: '',
+    ward_purchase_cooldown: 0
+  },
+  player: {
+    steamid: '76561198280598633',
+    accountid: '320332905',
+    name: 'SanchoSamba',
+    activity: 'playing',
+    kills: 0,
+    deaths: 0,
+    assists: 0,
+    last_hits: 0,
+    denies: 0,
+    kill_streak: 0,
+    commands_issued: 0,
+    kill_list: {},
+    team_name: 'radiant',
+    player_slot: 0,
+    team_slot: 0,
+    gold: 643,
+    gold_reliable: 43,
+    gold_unreliable: 600,
+    gold_from_hero_kills: 0,
+    gold_from_creep_kills: 0,
+    gold_from_income: 43,
+    gold_from_shared: 0,
+    gpm: 90,
+    xpm: 0
+  },
+  hero: {
+    facet: 1,
+    xpos: -6700,
+    ypos: -6700,
+    id: 104,
+    name: 'npc_dota_hero_legion_commander',
+    level: 1,
+    xp: 0,
+    alive: true,
+    respawn_seconds: 0,
+    buyback_cost: 249,
+    buyback_cooldown: 0,
+    health: 648,
+    max_health: 648,
+    health_percent: 100,
+    mana: 315,
+    max_mana: 315,
+    mana_percent: 100,
+    silenced: false,
+    stunned: false,
+    disarmed: false,
+    magicimmune: false,
+    hexed: false,
+    muted: false,
+    break: false,
+    aghanims_scepter: false,
+    aghanims_shard: false,
+    smoked: false,
+    permanent_buffs: {},
+    has_debuff: false,
+    talent_1: false,
+    talent_2: false,
+    talent_3: false,
+    talent_4: false,
+    talent_5: false,
+    talent_6: false,
+    talent_7: false,
+    talent_8: false,
+    attributes_level: 0
+  },
+  abilities: {
+    ability0: {
+      name: 'legion_commander_overwhelming_odds',
+      level: 0,
+      can_cast: false,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability1: {
+      name: 'legion_commander_press_the_attack',
+      level: 0,
+      can_cast: false,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability2: {
+      name: 'legion_commander_moment_of_courage',
+      level: 0,
+      can_cast: false,
+      passive: true,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability3: {
+      name: 'legion_commander_outfight_them',
+      level: 1,
+      can_cast: false,
+      passive: true,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability4: {
+      name: 'legion_commander_duel',
+      level: 0,
+      can_cast: false,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: true
+    },
+    ability5: {
+      name: 'plus_high_five',
+      level: 1,
+      can_cast: true,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability6: {
+      name: 'plus_guild_banner',
+      level: 1,
+      can_cast: true,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    }
+  },
+  items: {
+    slot0: { name: 'empty' },
+    slot1: { name: 'empty' },
+    slot2: { name: 'empty' },
+    slot3: { name: 'empty' },
+    slot4: { name: 'empty' },
+    slot5: { name: 'empty' },
+    slot6: { name: 'empty' },
+    slot7: { name: 'empty' },
+    slot8: { name: 'empty' },
+    stash0: { name: 'empty' },
+    stash1: { name: 'empty' },
+    stash2: { name: 'empty' },
+    stash3: { name: 'empty' },
+    stash4: { name: 'empty' },
+    stash5: { name: 'empty' },
+    teleport0: {
+      name: 'item_tpscroll',
+      purchaser: 0,
+      item_level: 1,
+      can_cast: false,
+      cooldown: 68,
+      max_cooldown: 101,
+      passive: false,
+      item_charges: 1,
+      charges: 1
+    },
+    neutral0: { name: 'empty' },
+    neutral1: { name: 'empty' },
+    preserved_neutral6: { name: 'empty' },
+    preserved_neutral7: { name: 'empty' },
+    preserved_neutral8: { name: 'empty' },
+    preserved_neutral9: { name: 'empty' },
+    preserved_neutral10: { name: 'empty' }
+  },
+  previously: {
+    map: { game_time: 50, clock_time: 27 },
+    player: { gold: 641, gold_reliable: 41, gold_from_income: 41 },
+    items: { teleport0: [Object] }
+  }
+}
+
+
+PICK PHASE
+{
+  provider: { name: 'Dota 2', appid: 570, version: 48, timestamp: 1764243606 },
+  map: {
+    name: 'start',
+    matchid: '8578758013',
+    game_time: 10,
+    clock_time: -72,
+    daytime: false,
+    nightstalker_night: false,
+    radiant_score: 0,
+    dire_score: 0,
+    game_state: 'DOTA_GAMERULES_STATE_HERO_SELECTION',
+    paused: false,
+    win_team: 'none',
+    customgamename: '',
+    ward_purchase_cooldown: 0
+  },
+  player: {
+    steamid: '76561198280598633',
+    accountid: '320332905',
+    name: 'SanchoSamba',
+    activity: 'playing',
+    kills: 0,
+    deaths: 0,
+    assists: 0,
+    last_hits: 0,
+    denies: 0,
+    kill_streak: 0,
+    commands_issued: 0,
+    kill_list: {},
+    team_name: 'dire',
+    player_slot: 0,
+    team_slot: 0,
+    gold: 600,
+    gold_reliable: 0,
+    gold_unreliable: 600,
+    gold_from_hero_kills: 0,
+    gold_from_creep_kills: 0,
+    gold_from_income: 0,
+    gold_from_shared: 0,
+    gpm: 0,
+    xpm: 0
+  },
+  hero: { id: 0 },
+  abilities: {},
+  items: {},
+  previously: { map: { game_time: 8, clock_time: -73 } }
+}
+
+
+MENU
+
+{
+  provider: { name: 'Dota 2', appid: 570, version: 48, timestamp: 1764243572 },
+  player: {}
+}

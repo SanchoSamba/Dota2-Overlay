@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Overlay Settings</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        #mainContainer {
+            display: flex;
+            flex: 1;
+            padding: 10px;
+            gap: 10px;
+            overflow: hidden;
+        }
+
+        /* Left section with timing inputs + canvas */
+        #leftPanel {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        /* Timing inputs above canvas */
+        #timingInputs {
+            display: flex;
+            gap: 6px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .row label {
+            font-size: 12px;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            padding: 3px;
+            border-radius: 3px;
+            border: 1px solid #555;
+            background: #333;
+            color: white;
+        }
+
+        input[type="number"] {
+            width: 100px;
+        }
+
+        canvas {
+            background: url('minimap.png') no-repeat center/contain;
+            border: 1px solid #555;
+        }
+
+        /* Notifications panel */
+        #notificationSettings {
+            margin-top: 45px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            width: 280px;
+            max-height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        /* Template controls above notifications */
+        #templateControls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        #templateControls button {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            background: #e76f51;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #templateNameInput {
+            flex: 1;
+            padding: 4px;
+            border-radius: 3px;
+            border: 1px solid #555;
+            background: #333;
+            color: white;
+        }
+
+        #notificationSettings h3 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+
+        #notificationList>div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        #notificationList input[type="number"] {
+            width: 50px;
+            margin-right: 4px;
+        }
+
+        #notificationList input[type="text"] {
+            flex: 1;
+            margin-right: 4px;
+        }
+
+        #notificationList button {
+            padding: 2px 5px;
+            cursor: pointer;
+            background: #e76f51;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #addNotificationBtn {
+            width: 100%;
+            padding: 5px;
+            margin-top: 4px;
+            cursor: pointer;
+            background: #2a9d8f;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+        }
+
+        #saveBtn {
+            width: calc(100% - 20px);
+            margin: 0 10px 10px 10px;
+            padding: 8px;
+            cursor: pointer;
+            background: #2a9d8f;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainContainer">
+        <!-- Left panel: timing inputs above minimap -->
+        <div id="leftPanel">
+            <div id="timingInputs">
+                <div class="row">
+                    <label for="timingRadiantInput">Timing Radiant</label>
+                    <input type="number" id="timingRadiantInput" placeholder="Radiant">
+                </div>
+                <div class="row">
+                    <label for="timingDireInput">Timing Dire</label>
+                    <input type="number" id="timingDireInput" placeholder="Dire">
+                </div>
+            </div>
+
+            <canvas id="minimapCanvas" width="400" height="400"></canvas>
+
+            <!-- Overlay Size Section -->
+            <div id="overlaySizeSection"
+                style="margin-top: 10px; background: rgba(0,0,0,0.7); padding: 8px; border-radius: 5px; width: 400px;">
+                <h3 style="margin: 0 0 6px 0; font-size: 16px;">Overlay Size</h3>
+
+                <div style="display: flex; gap: 10px;">
+                    <div class="row">
+                        <label for="overlayWidthInput">Width</label>
+                        <input type="number" id="overlayWidthInput" placeholder="Overlay Width">
+                    </div>
+
+                    <div class="row">
+                        <label for="overlayHeightInput">Height</label>
+                        <input type="number" id="overlayHeightInput" placeholder="Overlay Height">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right panel: notifications -->
+        <div id="notificationSettings">
+            <div id="templateControls">
+                <button id="prevTemplate">&lt;</button>
+                <input type="text" id="templateNameInput" placeholder="Template Name">
+                <button id="nextTemplate">&gt;</button>
+            </div>
+            <h3>Notifications</h3>
+            <div id="notificationList"></div>
+            <button id="addNotificationBtn">Add Notification</button>
+        </div>
+    </div>
+
+    <!-- Save button at the bottom -->
+    <button id="saveBtn">Save</button>
+
+    <script src="settings.js"></script>
+</body>
+
+</html>

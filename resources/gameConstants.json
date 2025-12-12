@@ -1,0 +1,162 @@
+{
+  "lanes": {
+    "top": {
+      "radiant": [
+        {
+          "x": -5920,
+          "y": -3720
+        },
+        {
+          "x": -5720,
+          "y": 1680
+        },
+        {
+          "x": -5480,
+          "y": 4440
+        },
+        {
+          "x": -4720,
+          "y": 5320
+        },
+        {
+          "x": 3560,
+          "y": 5200
+        }
+      ]
+    },
+    "mid": {
+      "radiant": [
+        {
+          "x": -4520,
+          "y": -4160
+        },
+        {
+          "x": -1360,
+          "y": -1200
+        },
+        {
+          "x": -280,
+          "y": -400
+        },
+        {
+          "x": 520,
+          "y": 560
+        },
+        {
+          "x": 4240,
+          "y": 3720
+        }
+      ]
+    },
+    "bot": {
+      "radiant": [
+        {
+          "x": -3600,
+          "y": -5520
+        },
+        {
+          "x": 4440,
+          "y": -5600
+        },
+        {
+          "x": 5440,
+          "y": -4520
+        },
+        {
+          "x": 5640,
+          "y": -2000
+        },
+        {
+          "x": 5760,
+          "y": 3360
+        }
+      ]
+    }
+  },
+  "laneSegmentTimings": {
+    "top": [
+      0,
+      19,
+      29,
+      33,
+      61
+    ],
+    "mid": [
+      0,
+      16,
+      20,
+      24,
+      42
+    ],
+    "bot": [
+      0,
+      28,
+      32,
+      41,
+      61
+    ]
+  },
+  "laneSegmentTimingsDire": {
+    "top": [
+      0,
+      27,
+      31,
+      40,
+      61
+    ],
+    "mid": [
+      0,
+      15,
+      20,
+      24,
+      39
+    ],
+    "bot": [
+      0,
+      19,
+      28,
+      33,
+      61
+    ]
+  },
+  "activeNotificationTemplate": 1,
+  "templates": [
+    {
+      "name": "Carry",
+      "notifications": {
+        "3": "Lotus test",
+        "6": "Lotus",
+        "7": "Experience shrine",
+        "10": "Lane-end, cart",
+        "14": "Experience shrine",
+        "20": "Tormentor + ROSH",
+        "21": "Experience shrine",
+        "28": "Experience shrine",
+        "35": "Experience shrine",
+        "42": "Experience shrine"
+      }
+    },
+    {
+      "name": "Mid",
+      "notifications": {
+        "3": "test",
+        "18": "New Notification"
+      }
+    },
+    {
+      "name": "Template 3",
+      "notifications": {}
+    },
+    {
+      "name": "Template 4",
+      "notifications": {}
+    },
+    {
+      "name": "Template 5",
+      "notifications": {}
+    }
+  ],
+  "overlayWidth": 325,
+  "overlayHeight": 325,
+  "activeTemplateIndex": 0
+}
