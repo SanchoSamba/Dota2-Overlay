@@ -14,6 +14,7 @@ let constantsCache = null; // ⬅ main stores constants to broadcast updates
 
 // Define the space needed for the notification bar
 const NOTIFICATION_HEIGHT = 30;
+const GOLD_WIDTH = 150;
 
 
 async function updateOverlayVisibility() {
@@ -55,9 +56,10 @@ function createWindow() {
 
   // FIX: Add notification height to total window height
   const newWindowHeight = overlayHeight + NOTIFICATION_HEIGHT;
+  const newWindowWidth = overlayWidth + GOLD_WIDTH;
 
   mainWindow = new BrowserWindow({
-    width: overlayWidth,
+    width: newWindowWidth,
     height: newWindowHeight,
     x: 0,
     // FIX: Shift window up by the new total height to keep the bottom edge in place
@@ -307,7 +309,8 @@ ipcMain.on("overlay-size-changed", (event, newSize) => {
     mainWindow.webContents.send("overlay-size-updated", {
         width: newSize.width,
         height: newSize.height,
-        notificationHeight: NOTIFICATION_HEIGHT 
+        notificationHeight: NOTIFICATION_HEIGHT, 
+        goldWidth: GOLD_WIDTH
     }); 
   }
 
@@ -320,6 +323,7 @@ ipcMain.on("overlay-size-changed", (event, newSize) => {
     const overlayHeight = newSize.height;
 
     const newWindowHeight = overlayHeight + NOTIFICATION_HEIGHT;
+    const newWindowWidth = overlayWidth + GOLD_WIDTH;
 
     // Set the main window's new size
     mainWindow.setSize(overlayWidth, newWindowHeight);
