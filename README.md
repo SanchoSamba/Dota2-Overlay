@@ -17,11 +17,6 @@ A lightweight, customizable, and always-on-top overlay built with Electron for D
 
 ## 🛠️ Installation & Setup
 
-### Prerequisites
-
-1.  **Node.js:** Must have Node.js installed (LTS version recommended).
-2.  **Dota 2 GSI Configuration:** You must set up Dota 2's GSI to send game data to the application.
-
 ### GSI Configuration
 
 1.  Navigate to your Dota 2 configuration folder:
