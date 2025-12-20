@@ -33,7 +33,6 @@
             flex-shrink: 0;
         }
 
-        /* Timing inputs above canvas */
         #timingInputs {
             display: flex;
             gap: 6px;
@@ -78,10 +77,9 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 10px;
         }
 
-        /* Template controls above notifications */
         #templateControls {
             display: flex;
             align-items: center;
@@ -143,7 +141,6 @@
         #addNotificationBtn {
             width: 100%;
             padding: 5px;
-            margin-top: 4px;
             cursor: pointer;
             background: #2a9d8f;
             border: none;
@@ -152,9 +149,39 @@
             font-weight: bold;
         }
 
+        /* Ability Timers Section */
+
+        #abilityTimersSection {
+            margin-top: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            width: 280px;
+            max-height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #abilityTimersSection h3 {
+            margin: 0 0 6px 0;
+            font-size: 16px;
+        }
+
+        #abilityTimersRow {
+            display: flex;
+            gap: 6px;
+        }
+
+        #abilityTimersRow input {
+            width: 40px;
+            text-align: center;
+        }
+
         #saveBtn {
             width: calc(100% - 20px);
-            margin: 0 10px 10px 10px;
+            margin: 10px;
             padding: 8px;
             cursor: pointer;
             background: #2a9d8f;
@@ -169,7 +196,7 @@
 
 <body>
     <div id="mainContainer">
-        <!-- Left panel: timing inputs above minimap -->
+        <!-- Left panel -->
         <div id="leftPanel">
             <div id="timingInputs">
                 <div class="row">
@@ -184,7 +211,6 @@
 
             <canvas id="minimapCanvas" width="400" height="400"></canvas>
 
-            <!-- Overlay Size Section -->
             <div id="overlaySizeSection"
                 style="margin-top: 10px; background: rgba(0,0,0,0.7); padding: 8px; border-radius: 5px; width: 400px;">
                 <h3 style="margin: 0 0 6px 0; font-size: 16px;">Overlay Size</h3>
@@ -192,28 +218,41 @@
                 <div style="display: flex; gap: 10px;">
                     <div class="row">
                         <label for="overlayWidthInput">Width</label>
-                        <input type="number" id="overlayWidthInput" placeholder="Overlay Width">
+                        <input type="number" id="overlayWidthInput">
                     </div>
-
                     <div class="row">
                         <label for="overlayHeightInput">Height</label>
-                        <input type="number" id="overlayHeightInput" placeholder="Overlay Height">
+                        <input type="number" id="overlayHeightInput">
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Right panel -->
+        <div style="display: flex; flex-direction: column; flex: 1;">
+            <div id="notificationSettings">
+                <div id="templateControls">
+                    <button id="prevTemplate">&lt;</button>
+                    <input type="text" id="templateNameInput" placeholder="Template Name">
+                    <button id="nextTemplate">&gt;</button>
+                </div>
 
-        <!-- Right panel: notifications -->
-        <div id="notificationSettings">
-            <div id="templateControls">
-                <button id="prevTemplate">&lt;</button>
-                <input type="text" id="templateNameInput" placeholder="Template Name">
-                <button id="nextTemplate">&gt;</button>
+                <h3>Notifications</h3>
+                <div id="notificationList"></div>
+                <button id="addNotificationBtn">Add Notification</button>
             </div>
-            <h3>Notifications</h3>
-            <div id="notificationList"></div>
-            <button id="addNotificationBtn">Add Notification</button>
+
+            <!-- Ability Timers (below notifications, above save button) -->
+            <div id="abilityTimersSection">
+                <h3>Ability Timers</h3>
+                <div id="abilityTimersRow">
+                    <input type="number" id="abilityTimer1" placeholder="S+1">
+                    <input type="number" id="abilityTimer2" placeholder="S+2">
+                    <input type="number" id="abilityTimer3" placeholder="S+3">
+                    <input type="number" id="abilityTimer4" placeholder="S+4">
+                    <input type="number" id="abilityTimer5" placeholder="S+5">
+                </div>
+            </div>
         </div>
     </div>
 

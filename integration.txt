@@ -1,12 +1,12 @@
 DURING GAME
 
 {
-  provider: { name: 'Dota 2', appid: 570, version: 48, timestamp: 1764243458 },
+    provider: { name: 'Dota 2', appid: 570, version: 48, timestamp: 1766250414 },
   map: {
     name: 'start',
-    matchid: '8578754323',
-    game_time: 52,
-    clock_time: 28,
+    matchid: '8613805376',
+    game_time: 27,
+    clock_time: 12,
     daytime: true,
     nightstalker_night: false,
     radiant_score: 0,
@@ -28,38 +28,38 @@ DURING GAME
     last_hits: 0,
     denies: 0,
     kill_streak: 0,
-    commands_issued: 0,
+    commands_issued: 5,
     kill_list: {},
     team_name: 'radiant',
     player_slot: 0,
     team_slot: 0,
-    gold: 643,
-    gold_reliable: 43,
+    gold: 619,
+    gold_reliable: 19,
     gold_unreliable: 600,
     gold_from_hero_kills: 0,
     gold_from_creep_kills: 0,
-    gold_from_income: 43,
+    gold_from_income: 19,
     gold_from_shared: 0,
-    gpm: 90,
+    gpm: 93,
     xpm: 0
   },
   hero: {
-    facet: 1,
-    xpos: -6700,
-    ypos: -6700,
-    id: 104,
-    name: 'npc_dota_hero_legion_commander',
+    facet: 2,
+    xpos: -6646,
+    ypos: -6464,
+    id: 18,
+    name: 'npc_dota_hero_sven',
     level: 1,
     xp: 0,
     alive: true,
     respawn_seconds: 0,
-    buyback_cost: 249,
+    buyback_cost: 247,
     buyback_cooldown: 0,
-    health: 648,
-    max_health: 648,
+    health: 626,
+    max_health: 626,
     health_percent: 100,
-    mana: 315,
-    max_mana: 315,
+    mana: 267,
+    max_mana: 267,
     mana_percent: 100,
     silenced: false,
     stunned: false,
@@ -85,7 +85,7 @@ DURING GAME
   },
   abilities: {
     ability0: {
-      name: 'legion_commander_overwhelming_odds',
+      name: 'sven_storm_bolt',
       level: 0,
       can_cast: false,
       passive: false,
@@ -95,7 +95,17 @@ DURING GAME
       ultimate: false
     },
     ability1: {
-      name: 'legion_commander_press_the_attack',
+      name: 'sven_great_cleave',
+      level: 0,
+      can_cast: false,
+      passive: true,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability2: {
+      name: 'sven_warcry',
       level: 0,
       can_cast: false,
       passive: false,
@@ -104,28 +114,8 @@ DURING GAME
       max_cooldown: 0,
       ultimate: false
     },
-    ability2: {
-      name: 'legion_commander_moment_of_courage',
-      level: 0,
-      can_cast: false,
-      passive: true,
-      ability_active: true,
-      cooldown: 0,
-      max_cooldown: 0,
-      ultimate: false
-    },
     ability3: {
-      name: 'legion_commander_outfight_them',
-      level: 1,
-      can_cast: false,
-      passive: true,
-      ability_active: true,
-      cooldown: 0,
-      max_cooldown: 0,
-      ultimate: false
-    },
-    ability4: {
-      name: 'legion_commander_duel',
+      name: 'sven_gods_strength',
       level: 0,
       can_cast: false,
       passive: false,
@@ -133,6 +123,16 @@ DURING GAME
       cooldown: 0,
       max_cooldown: 0,
       ultimate: true
+    },
+    ability4: {
+      name: 'sven_vanquisher',
+      level: 1,
+      can_cast: false,
+      passive: true,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
     },
     ability5: {
       name: 'plus_high_five',
@@ -146,6 +146,46 @@ DURING GAME
     },
     ability6: {
       name: 'plus_guild_banner',
+      level: 1,
+      can_cast: true,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability7: {
+      name: 'seasonal_throw_snowball',
+      level: 1,
+      can_cast: true,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability8: {
+      name: 'seasonal_summon_snowman',
+      level: 1,
+      can_cast: true,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability9: {
+      name: 'seasonal_festive_firework',
+      level: 1,
+      can_cast: true,
+      passive: false,
+      ability_active: true,
+      cooldown: 0,
+      max_cooldown: 0,
+      ultimate: false
+    },
+    ability10: {
+      name: 'seasonal_summon_penguin',
       level: 1,
       can_cast: true,
       passive: false,
@@ -176,7 +216,7 @@ DURING GAME
       purchaser: 0,
       item_level: 1,
       can_cast: false,
-      cooldown: 68,
+      cooldown: 86,
       max_cooldown: 101,
       passive: false,
       item_charges: 1,
@@ -190,12 +230,72 @@ DURING GAME
     preserved_neutral9: { name: 'empty' },
     preserved_neutral10: { name: 'empty' }
   },
+  buildings: {
+    radiant: {
+      dota_goodguys_tower1_top: [Object],
+      dota_goodguys_tower2_top: [Object],
+      dota_goodguys_tower3_top: [Object],
+      dota_goodguys_tower1_mid: [Object],
+      dota_goodguys_tower2_mid: [Object],
+      dota_goodguys_tower3_mid: [Object],
+      dota_goodguys_tower1_bot: [Object],
+      dota_goodguys_tower2_bot: [Object],
+      dota_goodguys_tower3_bot: [Object],
+      dota_goodguys_tower4_top: [Object],
+      dota_goodguys_tower4_bot: [Object],
+      good_rax_melee_top: [Object],
+      good_rax_range_top: [Object],
+      good_rax_melee_mid: [Object],
+      good_rax_range_mid: [Object],
+      good_rax_melee_bot: [Object],
+      good_rax_range_bot: [Object],
+      dota_goodguys_fort: [Object]
+    }
+  },
+  draft: {},
+  wearables: {
+    wearable0: 12987,
+    style0: 0,
+    wearable1: 13811,
+    style1: 0,
+    wearable2: 12989,
+    style2: 0,
+    wearable3: 12988,
+    style3: 0,
+    wearable4: 17669,
+    wearable5: 8632,
+    wearable6: 12990,
+    style6: 0,
+    wearable7: 8366,
+    wearable8: 791,
+    wearable9: 793,
+    wearable10: 792,
+    wearable11: 816,
+    wearable12: 14912,
+    wearable13: 36190,
+    wearable14: 36173
+  },
+  events: [
+    {
+      game_time: 15,
+      event_type: 'chat_message',
+      player_id: 0,
+      channel_type: 12,
+      message: '-startgame'
+    },
+    {
+      game_time: 15,
+      event_type: 'generic_event',
+      data: '{"type":"CHAT_MESSAGE_NO_BATTLE_POINTS","value":1,"playerid1":-1,"playerid2":-1,"time":0}'
+    }
+  ],
   previously: {
-    map: { game_time: 50, clock_time: 27 },
-    player: { gold: 641, gold_reliable: 41, gold_from_income: 41 },
+    map: { game_time: 26, clock_time: 10 },
+    player: { gold: 617, gold_reliable: 17, gold_from_income: 17 },
     items: { teleport0: [Object] }
   }
 }
+
 
 
 PICK PHASE

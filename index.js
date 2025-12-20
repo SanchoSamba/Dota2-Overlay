@@ -34,8 +34,7 @@ async function updateOverlayVisibility() {
   if (visibilityMode === "focused") {
     const win = await activeWin().catch(() => null);
     const isDotaFocused =
-      win?.owner?.name?.toLowerCase() === "dota2.exe" ||
-      win?.title?.toLowerCase()?.includes("dota");
+      win?.owner?.name?.toLowerCase() === "dota2.exe" 
 
     if (isDotaFocused) {
       mainWindow.setOpacity(overlayOpacity);
@@ -81,7 +80,7 @@ function createWindow() {
   mainWindow.setIgnoreMouseEvents(true);
   mainWindow.loadFile('overlay.html');
 
-  // mainWindow.webContents.openDevTools({ mode: 'detach' }); // Commented out devtools for production use
+  mainWindow.webContents.openDevTools({ mode: 'detach' }); // Commented out devtools for production use
 }
 
 // ------------------------------------------------------
@@ -101,6 +100,8 @@ function startGSIServer() {
       const homeTeam = data.player?.team_name;
       const unreliableGold = data.player?.gold_unreliable;
       const gameState = data.map.game_state || 'DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS';
+      const buybackCooldown = data.hero?.buyback_cooldown || 0;
+
 
       const gameData = {
         clockTime: clockTime,
@@ -109,7 +110,8 @@ function startGSIServer() {
         paused: paused,
         homeTeam: homeTeam,
         unreliableGold: unreliableGold,
-        postGame: gameState === 'DOTA_GAMERULES_STATE_POST_GAME'
+        postGame: gameState === 'DOTA_GAMERULES_STATE_POST_GAME',
+        buybackCooldown: buybackCooldown
       };
 
  
@@ -170,10 +172,10 @@ function openSettingsWindow() {
   }
 
   settingsWindow = new BrowserWindow({
-    width: 720,
+    width: 745,
     height: 618,
     useContentSize: true,
-    resizable: false,
+    resizable: true,
     webPreferences: {
       preload: path.join(__dirname, 'settingsPreload.js'),
       contextIsolation: true,

@@ -138,7 +138,9 @@
     },
     {
       "name": "Mid",
-      "notifications": {}
+      "notifications": {
+        "100": "New Notification"
+      }
     },
     {
       "name": "Offlane",
@@ -155,5 +157,5 @@
   ],
   "overlayWidth": 325,
   "overlayHeight": 325,
-  "activeTemplateIndex": 0
+  "activeTemplateIndex": 1
 }

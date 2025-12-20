@@ -103,22 +103,6 @@ window.electron.ipcRenderer.on("overlay-size-updated", (event, newSize) => {
 });
 
 
-// -------------------------------------------------
-// Game/Time handling
-// -------------------------------------------------
-/* let gameData = { clockTime: 0, mapName: "unknown", paused: false, alive: true };
-let lastFrameTime = Date.now();
-let serverClockTime = 0;
-let displayClockTime = 0;
-
-window.electron.ipcRenderer.on("game-data", (event, data) => {
-  gameData = data;
-  serverClockTime = data.clockTime;
-
-  if (Math.abs(displayClockTime - serverClockTime) > 2)
-    displayClockTime = serverClockTime;
-}); */
-
 
 // -------------------------------------------------
 // Game/Time handling
@@ -265,31 +249,47 @@ function draw() {
     const min = Math.floor(displayClockTime / 60);
     const next = getNextNotification(min);
 
-    if (next !== null) {
+   if (next !== null) {
       const notificationText = `${notifications[next]} in ${next - min} min`;
-      const notificationTextX = 5;
-      const textY = (notificationOffset / 2) + 6; // Y=21 for 30px height (centered + small offset)
+
+      const paddingX = 10;          // horizontal padding inside the black bar
+      const minBackgroundWidth = 200;
+
+      // Set font BEFORE measuring text
+      goldctx.font = "20px Arial";
+      const textWidth = goldctx.measureText(notificationText).width;
+
+      const backgroundWidth = Math.max(
+        minBackgroundWidth,
+        textWidth + paddingX * 2
+      );
+
+      const notificationTextX = paddingX;
+      const textY = (notificationOffset / 2) + 6;
 
       // 1. Draw Notification background
       goldctx.fillStyle = "rgba(0,0,0,0.7)";
-      goldctx.fillRect(0, 0, canvas.width, notificationOffset);
+      goldctx.fillRect(0, 0, Math.max(backgroundWidth, canvas.width), notificationOffset);
 
       // 2. Draw Notification text
-      goldctx.font = "20px Arial";
       goldctx.fillStyle = "white";
       goldctx.fillText(notificationText, notificationTextX, textY);
-      
-      // 3. Calculate Gold text position
-      const goldTextX = canvas.width + 15; // 15px gap
-      const goldTextY = notificationOffset + canvas.height * 0.3; // Slightly lower than 21 (textY) for a subtle drop
 
-      // 4. Draw Gold text (right next to notification)
-      // The color and font are now set here, and its previous off-screen rendering is removed.
-      goldctx.font = "600 24px Arial"; // Prominent, but fits in the 30px bar
-      goldctx.fillStyle = "rgba(233,71,71,0.8)"; 
-      goldctx.fillText(`${gameData.unreliableGold}`, goldTextX, goldTextY);
+      // 3. Calculate Gold text position
+      const goldTextX = canvas.width + 15; // place it right after the notification bar
+      const goldTextY = notificationOffset + canvas.height * 0.06;
+
+      // 4. Draw Gold text
+      goldctx.font = "650 24px Arial";
+
+      let textGold = gameData.unreliableGold;
+      goldctx.fillStyle = "rgba(233,71,71,0.9)";
+
+
+      goldctx.fillText(textGold, goldTextX, goldTextY);
 
     }
+
   }
 
   requestAnimationFrame(draw);
