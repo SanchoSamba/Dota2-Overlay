@@ -13,13 +13,9 @@ A lightweight, customizable, and always-on-top overlay built with Electron for D
     * **Visibility Modes:** Toggle visibility (Visible, Hidden, or **Focused**—only visible when Dota 2 is the active window) via the system tray icon.
     * **Opacity Control:** Adjust the transparency of the entire overlay via the system tray menu.
 * **Waypoint Editor:** Visually adjust creep pathing waypoints and segment timings directly within the Settings panel.
+<img width="426" height="356" alt="{590633FB-A4DF-4591-A597-D844881CB698}" src="https://github.com/user-attachments/assets/eb3e4090-2416-4d7d-bdb8-28aa32799303" />
 
 ## 🛠️ Installation & Setup
-
-### Prerequisites
-
-1.  **Node.js:** Must have Node.js installed (LTS version recommended).
-2.  **Dota 2 GSI Configuration:** You must set up Dota 2's GSI to send game data to the application.
 
 ### GSI Configuration
 
